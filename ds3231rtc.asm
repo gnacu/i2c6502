@@ -1,4 +1,4 @@
-;----[ ds3231rtc.a ]--------------------
+;----[ ds3231rtc.asm ]------------------
 
 ;DS3231 RTC over i2c6502 for C64
 ;Copyright (c) 2020 Greg Nacu
