@@ -508,16 +508,13 @@ bufptr   = $fb;$fc
 
          sta addr
          sty reg
-         php
-
-         jsr i2c_start
-
-         plp
          bcs skipregw
 
          ;Some devices support
          ;sequential read with a
          ;pre-defined first address
+
+         jsr i2c_start
 
          lda addr
          ldx #writebit
@@ -529,11 +526,10 @@ bufptr   = $fb;$fc
          lda reg
          ldx #purebyte
          jsr i2c_writeb
+skipregw
 
          jsr i2c_start
-
-
-skipregw lda addr
+         lda addr
          ldx #readbit
          jsr i2c_writeb
 
